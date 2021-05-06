@@ -24,3 +24,37 @@ main {
 h1 {
   text-align: center;
 }
+
+button {
+  padding: 0.5em 1em;
+
+  &:not(:disabled) {
+    cursor: pointer;
+    background: #eee;
+    border: 0.1em solid #eee;
+
+    &:hover {
+      background: #ddd;
+      border: 0.1em solid #ddd;
+    }
+    &:active {
+      background: #ccc;
+      border: 0.1em solid #ccc;
+    }
+
+    &.primary {
+      background: #333;
+      border: 0.1em solid #333;
+      color: white;
+
+      &:hover {
+        background: #444;
+        border: 0.1em solid #444;
+      }
+      &:active {
+        background: #555;
+        border: 0.1em solid #555;
+      }
+    }
+  }
+}
