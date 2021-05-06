@@ -1,5 +1,8 @@
+import { HttpArticleService } from './services/http-article.service';
+import { ArticleService } from './services/article.service';
 import { LOCALE_ID, NgModule, DEFAULT_CURRENCY_CODE } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,10 +18,11 @@ registerLocaleData(localeFr, 'fr');
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, LegalComponent],
-  imports: [BrowserModule, AppRoutingModule, LayoutModule],
+  imports: [BrowserModule, AppRoutingModule, LayoutModule, HttpClientModule],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr' },
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' },
+    { provide: ArticleService, useClass: HttpArticleService },
   ],
   bootstrap: [AppComponent],
 })
