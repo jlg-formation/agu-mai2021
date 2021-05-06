@@ -1,5 +1,8 @@
+import { ArticleService } from './../../services/article.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Article } from 'src/app/interfaces/article';
 
 @Component({
   selector: 'app-add',
@@ -8,12 +11,21 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AddComponent implements OnInit {
   f = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    name: new FormControl('Tournevis', [
+      Validators.required,
+      Validators.minLength(3),
+    ]),
     price: new FormControl(0, [Validators.required, Validators.min(0)]),
     qty: new FormControl(1, [Validators.required, Validators.min(1)]),
   });
 
-  constructor() {}
+  constructor(private router: Router, private articleService: ArticleService) {}
 
   ngOnInit(): void {}
+
+  submit(): void {
+    console.log('submit');
+    this.articleService.add(this.f.value as Article);
+    this.router.navigateByUrl('/stock');
+  }
 }
