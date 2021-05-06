@@ -11,10 +11,7 @@ import { Article } from 'src/app/interfaces/article';
 })
 export class AddComponent implements OnInit {
   f = new FormGroup({
-    name: new FormControl('Tournevis', [
-      Validators.required,
-      Validators.minLength(3),
-    ]),
+    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     price: new FormControl(0, [Validators.required, Validators.min(0)]),
     qty: new FormControl(1, [Validators.required, Validators.min(1)]),
   });
