@@ -33,5 +33,9 @@ table {
       text-align: right;
       white-space: nowrap;
     }
+
+    tr.selected {
+      background: #ccc;
+    }
   }
 }
