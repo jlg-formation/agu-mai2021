@@ -1,18 +1,18 @@
 <main>
   <h1>Ajouter un article</h1>
-  <form>
+  <form [formGroup]="f">
     <label>
       <div>Nom</div>
-      <input type="text" />
+      <input type="text" formControlName="name" />
     </label>
     <label>
       <div>Prix</div>
-      <input type="text" />
+      <input type="number" formControlName="price" min="0" step="0.01" />
     </label>
     <label>
       <div>Quantité</div>
-      <input type="text" />
+      <input type="number" formControlName="qty" min="1" step="1" />
     </label>
-    <button class="primary">Ajouter</button>
+    <button [disabled]="f.invalid" class="primary">Ajouter</button>
   </form>
 </main>
