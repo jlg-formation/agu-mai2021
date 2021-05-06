@@ -16,13 +16,19 @@ export class AddComponent implements OnInit {
     qty: new FormControl(1, [Validators.required, Validators.min(1)]),
   });
 
+  myDelay = 2000;
+
   constructor(
     private router: Router,
     private articleService: ArticleService,
     private route: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.myDelay = 4000;
+    }, 2000);
+  }
 
   submit(): void {
     console.log('submit');
