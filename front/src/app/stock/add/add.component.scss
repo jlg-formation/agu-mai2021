@@ -1,0 +1,28 @@
+:host {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-flow: column;
+
+  margin-top: 2em;
+
+  width: 100%;
+  max-width: 25em;
+
+  label {
+    margin-bottom: 1em;
+    input {
+      border: 0.1em solid #ccc;
+      padding: 0.5em 1em;
+      width: 100%;
+    }
+  }
+
+  button {
+    margin-top: 3em;
+  }
+}
