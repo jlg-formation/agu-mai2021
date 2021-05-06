@@ -7,23 +7,29 @@ const app = express();
 const port = 3000;
 const www = "../front/dist/front";
 
+let seq = 4;
+
 const articles = [
   {
+    id: "a1",
     name: "Tournevisxxxx",
     price: 2.99,
     qty: 123,
   },
   {
+    id: "a2",
     name: "Tournevis cruciforme",
     price: 3.45,
     qty: 12,
   },
   {
+    id: "a3",
     name: "Tondeuse à gazon",
     price: 150,
     qty: 20,
   },
   {
+    id: "a4",
     name: "Marteau",
     price: 3.67,
     qty: 300,
@@ -44,8 +50,10 @@ app.get("/api/articles", (req, res) => {
 
 app.post("/api/articles", (req, res) => {
   const article = req.body as Article;
+  seq++;
+  article.id = "a" + seq;
   articles.push(article);
-  res.json(articles);
+  res.status(201).json(article);
 });
 
 app.use(express.static(www));
