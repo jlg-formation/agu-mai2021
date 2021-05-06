@@ -9,7 +9,7 @@ const www = "../front/dist/front";
 
 let seq = 4;
 
-const articles = [
+let articles = [
   {
     id: "a1",
     name: "Tournevisxxxx",
@@ -54,6 +54,12 @@ app.post("/api/articles", (req, res) => {
   article.id = "a" + seq;
   articles.push(article);
   res.status(201).json(article);
+});
+
+app.delete("/api/articles", (req, res) => {
+  const ids = req.body as string[];
+  articles = articles.filter((a) => !ids.includes(a.id));
+  res.status(204).end();
 });
 
 app.use(express.static(www));
