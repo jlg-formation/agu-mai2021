@@ -2,9 +2,11 @@
   <h1>Liste des articles</h1>
   <div class="content">
     <nav>
-      <button class="pro-add" routerLink="add">Ajouter</button>
+      <button class="pro-add" routerLink="add">
+        <fa-icon [icon]="faPlus"></fa-icon>
+      </button>
       <button [hidden]="selectedArticles.size === 0" (click)="remove()">
-        Supprimer
+        <fa-icon [icon]="faTrashAlt"></fa-icon>
       </button>
     </nav>
 
