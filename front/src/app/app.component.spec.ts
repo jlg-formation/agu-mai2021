@@ -4,7 +4,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './routes/home/home.component';
 import { Routes, Router } from '@angular/router';
-import { Location } from '@angular/common';
 
 describe('AppComponent', () => {
   const routes: Routes = [{ path: '', component: HomeComponent }];
