@@ -23,4 +23,20 @@ describe('AddComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should submit', () => {
+    component.submit();
+    expect(component).toBeTruthy();
+  });
+
+  it('should setTimeout', () => {
+    const origSetTimeout = setTimeout;
+    // tslint:disable-next-line: ban-types
+    (window as any).setTimeout = (callback: Function, delay: number) => {
+      callback();
+    };
+    component.ngOnInit();
+    (window as any).setTimeout = origSetTimeout;
+    expect(component).toBeTruthy();
+  });
 });
