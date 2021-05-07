@@ -5,7 +5,8 @@ import {Article} from './article';
 import {resolve} from 'path';
 
 const app = express();
-const port = 3000;
+console.log('process.env.PORT: ', process.env.PORT);
+const port = +(process.env.PORT || '3000');
 const www = resolve(process.cwd(), '../front/dist/front');
 
 let seq = 4;
