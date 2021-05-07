@@ -2,6 +2,7 @@ import { WidgetModule } from './../widget/widget.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StockComponent } from './stock.component';
+import { article } from 'src/test/data';
 
 describe('StockComponent', () => {
   let component: StockComponent;
@@ -21,6 +22,17 @@ describe('StockComponent', () => {
   });
 
   it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should toggle', () => {
+    component.toggle(article);
+    component.toggle(article);
+    expect(component).toBeTruthy();
+  });
+
+  it('should remove', () => {
+    component.remove();
     expect(component).toBeTruthy();
   });
 });
