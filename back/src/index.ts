@@ -2,10 +2,11 @@ import express from 'express';
 import serveIndex from 'serve-index';
 import cors from 'cors';
 import {Article} from './article';
+import {resolve} from 'path';
 
 const app = express();
 const port = 3000;
-const www = '../front/dist/front';
+const www = resolve(process.cwd(), '../front/dist/front');
 
 let seq = 4;
 
@@ -62,8 +63,16 @@ app.delete('/api/articles', (req, res) => {
   res.status(204).end();
 });
 
+app.use('/api', (req, res) => {
+  res.status(404).end();
+});
+
 app.use(express.static(www));
 app.use(serveIndex(www, {icons: true}));
+
+app.use((req, res) => {
+  res.sendFile(resolve(www, 'index.html'));
+});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
