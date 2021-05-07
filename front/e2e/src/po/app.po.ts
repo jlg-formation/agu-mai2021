@@ -6,6 +6,11 @@ export class AppPage {
   }
 
   async getTitleText(): Promise<string> {
-    return element(by.css('app-root .content span')).getText();
+    return element(by.css('header span')).getText();
+  }
+
+  async clickOnSeeStockBtn(): Promise<void> {
+    const button = element(by.css('button'));
+    await button.click();
   }
 }
