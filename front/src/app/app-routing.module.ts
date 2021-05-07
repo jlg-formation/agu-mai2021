@@ -6,7 +6,11 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'legal', component: LegalComponent },
-  { path: 'stock', loadChildren: () => import('./stock/stock.module').then(m => m.StockModule) },
+  {
+    path: 'stock',
+    loadChildren: () =>
+      import('./stock/stock.module').then((m) => m.StockModule),
+  },
 ];
 
 @NgModule({
